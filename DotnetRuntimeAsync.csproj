@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net11.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!-- The one line that turns runtime async on for this project.
+       dotnet run -c Release -p:RuntimeAsync=false builds the classic compiler state machines instead. -->
+  <PropertyGroup Condition="'$(RuntimeAsync)' != 'false'">
+    <Features>$(Features);runtime-async=on</Features>
+  </PropertyGroup>
+
+</Project>
